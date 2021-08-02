@@ -1,5 +1,5 @@
 # arm-nginx-lua
-
+```
 文件存放位置是/www/server/panel/install
 
 安装命令是bash nginx.sh install openresty
@@ -24,6 +24,7 @@ rm -rf /www/server/panel/data/bind.pl
 
 
 1.打开目录/www/server/panel/class找到并编辑panelplugin.py文件
+
 2.搜索并找到softList['list'] = tmpList这段代码，在其下方添加如下代码：
 softList['pro'] = 1
         for soft in softList['list']:
