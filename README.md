@@ -30,3 +30,24 @@ softList['pro'] = 1
         for soft in softList['list']:
             soft['endtime'] = 0
 3.重启面板
+
+
+修改完成后重启面板，重启完成后就可以直接安装收费的插件了，Nginx防火墙也可以直接安装使用
+
+网站监控报表
+
+如果需要使用网站监控报表还需另外修改一次代码：
+
+安装好网站监控报表插件后打开/www/server/panel/plugin/total目录并编辑total_main.py文件
+
+使用Ctrl+F搜索并找到if 'bt_total' in session: return public.returnMsg(True,'OK!');这段代码
+
+在这段代码前加上#将其注释掉，并在其下方加入以下代码：
+
+        session['bt_total'] = True
+
+        return public.returnMsg(True,'OK!');
+
+示例：
+
+然后再次重启面板，即可使用网站监控报表插件了；
