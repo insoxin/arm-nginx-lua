@@ -676,16 +676,6 @@ Install_Main(){
 	Setup_Count ${IDC_CODE}
 }
 
-echo "
-+----------------------------------------------------------------------
-| Bt-WebPanel FOR CentOS/Ubuntu/Debian
-+----------------------------------------------------------------------
-| Copyright © 2015-2099 BT-SOFT(http://www.bt.cn) All rights reserved.
-+----------------------------------------------------------------------
-| The WebPanel URL will be http://SERVER_IP:8888 when installed.
-+----------------------------------------------------------------------
-"
-
 Install_Main
 echo > /www/server/panel/data/bind.pl
 echo -e "=================================================================="
