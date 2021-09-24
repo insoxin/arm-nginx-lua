@@ -65,7 +65,17 @@ Lock_Clear(){
 		rm -f /etc/bt_crack.pl
 	fi
 }
-
+Install_Check(){
+	if [ "${INSTALL_FORCE}" ];then
+		return
+	fi
+	echo -e "----------------------------------------------------"
+	echo -e "检查已有其他Web/mysql环境，安装宝塔可能影响现有站点及数据"
+	echo -e "Web/mysql service is alreday installed,Can't install panel"
+	echo -e "----------------------------------------------------"
+	echo -e "已知风险/Enter yes to force installation"
+	INSTALL_FORCE="true"
+}
 System_Check(){
 	MYSQLD_CHECK=$(ps -ef |grep mysqld|grep -v grep|grep -v /www/server/mysql)
 	PHP_CHECK=$(ps -ef|grep php-fpm|grep master|grep -v /www/server/php)
@@ -675,7 +685,6 @@ Install_Main(){
 	Get_Ip_Address
 	Setup_Count ${IDC_CODE}
 }
-
 Install_Main
 echo > /www/server/panel/data/bind.pl
 echo -e "=================================================================="
